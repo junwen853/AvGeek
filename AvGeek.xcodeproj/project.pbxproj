@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A0072C72E6041F3004BF75D /* AppIcon_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072C02E6041F3004BF75D /* AppIcon_1024.png */; };
+		4A0072C82E6041F3004BF75D /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072C42E6041F3004BF75D /* placeholder.png */; };
+		4A0072C92E6041F3004BF75D /* b787-9.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072C32E6041F3004BF75D /* b787-9.png */; };
+		4A0072CA2E6041F3004BF75D /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072C62E6041F3004BF75D /* README.txt */; };
+		4A0072CD2E6041F3004BF75D /* a320.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072C22E6041F3004BF75D /* a320.png */; };
+		4A0072CE2E6041F3004BF75D /* AvGeekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0072C12E6041F3004BF75D /* AvGeekApp.swift */; };
+		4A0072D42E604D44004BF75D /* airports_db.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072D22E604D44004BF75D /* airports_db.json */; };
+		4A0072DA2E60559D004BF75D /* aircraft_db.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072D92E60559D004BF75D /* aircraft_db.json */; };
+		4A9C50452E6C14F100ABA330 /* ne_50m_land.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C50442E6C14F100ABA330 /* ne_50m_land.geojson */; };
+		4A9C50462E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C50432E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A00722F2E5FE8DC004BF75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A0072192E5FE8DA004BF75D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A0072202E5FE8DA004BF75D;
+			remoteInfo = AvGeek;
+		};
+		4A0072392E5FE8DC004BF75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A0072192E5FE8DA004BF75D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A0072202E5FE8DA004BF75D;
+			remoteInfo = AvGeek;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4A0072512E5FFF9B004BF75D /* AvGeek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvGeek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A0072522E5FFF9B004BF75D /* AvGeekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvGeekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A0072532E5FFF9B004BF75D /* AvGeekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvGeekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A0072C02E6041F3004BF75D /* AppIcon_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon_1024.png; sourceTree = "<group>"; };
+		4A0072C12E6041F3004BF75D /* AvGeekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvGeekApp.swift; sourceTree = "<group>"; };
+		4A0072C22E6041F3004BF75D /* a320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a320.png; sourceTree = "<group>"; };
+		4A0072C32E6041F3004BF75D /* b787-9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "b787-9.png"; sourceTree = "<group>"; };
+		4A0072C42E6041F3004BF75D /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		4A0072C62E6041F3004BF75D /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4A0072D22E604D44004BF75D /* airports_db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = airports_db.json; sourceTree = "<group>"; };
+		4A0072D92E60559D004BF75D /* aircraft_db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = aircraft_db.json; sourceTree = "<group>"; };
+		4A9C50432E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ne_50m_admin_0_countries.geojson; sourceTree = "<group>"; };
+		4A9C50442E6C14F100ABA330 /* ne_50m_land.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ne_50m_land.geojson; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4A0072232E5FE8DA004BF75D /* AvGeek */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AvGeek;
+			sourceTree = "<group>";
+		};
+		4A0072312E5FE8DC004BF75D /* AvGeekTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AvGeekTests;
+			sourceTree = "<group>";
+		};
+		4A00723B2E5FE8DC004BF75D /* AvGeekUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = AvGeekUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A00721E2E5FE8DA004BF75D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A00722B2E5FE8DC004BF75D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A0072352E5FE8DC004BF75D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A0072182E5FE8DA004BF75D = {
+			isa = PBXGroup;
+			children = (
+				4A0072232E5FE8DA004BF75D /* AvGeek */,
+				4A0072312E5FE8DC004BF75D /* AvGeekTests */,
+				4A00723B2E5FE8DC004BF75D /* AvGeekUITests */,
+				4A0072512E5FFF9B004BF75D /* AvGeek.app */,
+				4A0072522E5FFF9B004BF75D /* AvGeekTests.xctest */,
+				4A0072532E5FFF9B004BF75D /* AvGeekUITests.xctest */,
+				4A0072C02E6041F3004BF75D /* AppIcon_1024.png */,
+				4A0072C12E6041F3004BF75D /* AvGeekApp.swift */,
+				4A0072C52E6041F3004BF75D /* Photos */,
+				4A0072C62E6041F3004BF75D /* README.txt */,
+				4A0072D22E604D44004BF75D /* airports_db.json */,
+				4A0072D92E60559D004BF75D /* aircraft_db.json */,
+				4A9C50432E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson */,
+				4A9C50442E6C14F100ABA330 /* ne_50m_land.geojson */,
+			);
+			sourceTree = "<group>";
+		};
+		4A0072C52E6041F3004BF75D /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				4A0072C22E6041F3004BF75D /* a320.png */,
+				4A0072C32E6041F3004BF75D /* b787-9.png */,
+				4A0072C42E6041F3004BF75D /* placeholder.png */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A0072202E5FE8DA004BF75D /* AvGeek */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A0072422E5FE8DC004BF75D /* Build configuration list for PBXNativeTarget "AvGeek" */;
+			buildPhases = (
+				4A00721D2E5FE8DA004BF75D /* Sources */,
+				4A00721E2E5FE8DA004BF75D /* Frameworks */,
+				4A00721F2E5FE8DA004BF75D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4A0072232E5FE8DA004BF75D /* AvGeek */,
+			);
+			name = AvGeek;
+			packageProductDependencies = (
+			);
+			productName = AvGeek;
+			productReference = 4A0072512E5FFF9B004BF75D /* AvGeek.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4A00722D2E5FE8DC004BF75D /* AvGeekTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A0072452E5FE8DC004BF75D /* Build configuration list for PBXNativeTarget "AvGeekTests" */;
+			buildPhases = (
+				4A00722A2E5FE8DC004BF75D /* Sources */,
+				4A00722B2E5FE8DC004BF75D /* Frameworks */,
+				4A00722C2E5FE8DC004BF75D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A0072302E5FE8DC004BF75D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4A0072312E5FE8DC004BF75D /* AvGeekTests */,
+			);
+			name = AvGeekTests;
+			packageProductDependencies = (
+			);
+			productName = AvGeekTests;
+			productReference = 4A0072522E5FFF9B004BF75D /* AvGeekTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4A0072372E5FE8DC004BF75D /* AvGeekUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A0072482E5FE8DC004BF75D /* Build configuration list for PBXNativeTarget "AvGeekUITests" */;
+			buildPhases = (
+				4A0072342E5FE8DC004BF75D /* Sources */,
+				4A0072352E5FE8DC004BF75D /* Frameworks */,
+				4A0072362E5FE8DC004BF75D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A00723A2E5FE8DC004BF75D /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4A00723B2E5FE8DC004BF75D /* AvGeekUITests */,
+			);
+			name = AvGeekUITests;
+			packageProductDependencies = (
+			);
+			productName = AvGeekUITests;
+			productReference = 4A0072532E5FFF9B004BF75D /* AvGeekUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A0072192E5FE8DA004BF75D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					4A0072202E5FE8DA004BF75D = {
+						CreatedOnToolsVersion = 16.4;
+						LastSwiftMigration = 1640;
+					};
+					4A00722D2E5FE8DC004BF75D = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4A0072202E5FE8DA004BF75D;
+					};
+					4A0072372E5FE8DC004BF75D = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4A0072202E5FE8DA004BF75D;
+					};
+				};
+			};
+			buildConfigurationList = 4A00721C2E5FE8DA004BF75D /* Build configuration list for PBXProject "AvGeek" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A0072182E5FE8DA004BF75D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4A0072182E5FE8DA004BF75D;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A0072202E5FE8DA004BF75D /* AvGeek */,
+				4A00722D2E5FE8DC004BF75D /* AvGeekTests */,
+				4A0072372E5FE8DC004BF75D /* AvGeekUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A00721F2E5FE8DA004BF75D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9C50452E6C14F100ABA330 /* ne_50m_land.geojson in Resources */,
+				4A9C50462E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson in Resources */,
+				4A0072C72E6041F3004BF75D /* AppIcon_1024.png in Resources */,
+				4A0072DA2E60559D004BF75D /* aircraft_db.json in Resources */,
+				4A0072C82E6041F3004BF75D /* placeholder.png in Resources */,
+				4A0072C92E6041F3004BF75D /* b787-9.png in Resources */,
+				4A0072CA2E6041F3004BF75D /* README.txt in Resources */,
+				4A0072CD2E6041F3004BF75D /* a320.png in Resources */,
+				4A0072D42E604D44004BF75D /* airports_db.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A00722C2E5FE8DC004BF75D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A0072362E5FE8DC004BF75D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A00721D2E5FE8DA004BF75D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A0072CE2E6041F3004BF75D /* AvGeekApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A00722A2E5FE8DC004BF75D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A0072342E5FE8DC004BF75D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4A0072302E5FE8DC004BF75D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A0072202E5FE8DA004BF75D /* AvGeek */;
+			targetProxy = 4A00722F2E5FE8DC004BF75D /* PBXContainerItemProxy */;
+		};
+		4A00723A2E5FE8DC004BF75D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A0072202E5FE8DA004BF75D /* AvGeek */;
+			targetProxy = 4A0072392E5FE8DC004BF75D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4A0072402E5FE8DC004BF75D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A0072412E5FE8DC004BF75D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A0072432E5FE8DC004BF75D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y2S3J7M7YN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = junwen.AvGeek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A0072442E5FE8DC004BF75D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y2S3J7M7YN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = junwen.AvGeek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4A0072462E5FE8DC004BF75D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-23.AvGeekTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvGeek.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AvGeek";
+			};
+			name = Debug;
+		};
+		4A0072472E5FE8DC004BF75D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-23.AvGeekTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AvGeek.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AvGeek";
+			};
+			name = Release;
+		};
+		4A0072492E5FE8DC004BF75D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-23.AvGeekUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AvGeek;
+			};
+			name = Debug;
+		};
+		4A00724A2E5FE8DC004BF75D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-23.AvGeekUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AvGeek;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A00721C2E5FE8DA004BF75D /* Build configuration list for PBXProject "AvGeek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A0072402E5FE8DC004BF75D /* Debug */,
+				4A0072412E5FE8DC004BF75D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A0072422E5FE8DC004BF75D /* Build configuration list for PBXNativeTarget "AvGeek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A0072432E5FE8DC004BF75D /* Debug */,
+				4A0072442E5FE8DC004BF75D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A0072452E5FE8DC004BF75D /* Build configuration list for PBXNativeTarget "AvGeekTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A0072462E5FE8DC004BF75D /* Debug */,
+				4A0072472E5FE8DC004BF75D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A0072482E5FE8DC004BF75D /* Build configuration list for PBXNativeTarget "AvGeekUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A0072492E5FE8DC004BF75D /* Debug */,
+				4A00724A2E5FE8DC004BF75D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A0072192E5FE8DA004BF75D /* Project object */;
+}

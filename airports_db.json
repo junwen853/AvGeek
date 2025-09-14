@@ -1,0 +1,1442 @@
+[
+  {
+    "iata": "ATL",
+    "name": "Hartsfield\u2013Jackson Atlanta Intl",
+    "city": "Atlanta",
+    "country": "USA",
+    "latitude": 33.6407,
+    "longitude": -84.4277
+  },
+  {
+    "iata": "DFW",
+    "name": "Dallas/Fort Worth Intl",
+    "city": "Dallas-Fort Worth",
+    "country": "USA",
+    "latitude": 32.8998,
+    "longitude": -97.0403
+  },
+  {
+    "iata": "DEN",
+    "name": "Denver Intl",
+    "city": "Denver",
+    "country": "USA",
+    "latitude": 39.8561,
+    "longitude": -104.6737
+  },
+  {
+    "iata": "ORD",
+    "name": "Chicago O'Hare Intl",
+    "city": "Chicago",
+    "country": "USA",
+    "latitude": 41.9742,
+    "longitude": -87.9073
+  },
+  {
+    "iata": "LAX",
+    "name": "Los Angeles Intl",
+    "city": "Los Angeles",
+    "country": "USA",
+    "latitude": 33.9416,
+    "longitude": -118.4085
+  },
+  {
+    "iata": "JFK",
+    "name": "John F. Kennedy Intl",
+    "city": "New York",
+    "country": "USA",
+    "latitude": 40.6413,
+    "longitude": -73.7781
+  },
+  {
+    "iata": "EWR",
+    "name": "Newark Liberty Intl",
+    "city": "Newark",
+    "country": "USA",
+    "latitude": 40.6895,
+    "longitude": -74.1745
+  },
+  {
+    "iata": "BOS",
+    "name": "Boston Logan Intl",
+    "city": "Boston",
+    "country": "USA",
+    "latitude": 42.3656,
+    "longitude": -71.0096
+  },
+  {
+    "iata": "IAD",
+    "name": "Washington Dulles Intl",
+    "city": "Washington",
+    "country": "USA",
+    "latitude": 38.9531,
+    "longitude": -77.4565
+  },
+  {
+    "iata": "DCA",
+    "name": "Reagan National",
+    "city": "Washington",
+    "country": "USA",
+    "latitude": 38.8521,
+    "longitude": -77.0377
+  },
+  {
+    "iata": "SEA",
+    "name": "Seattle\u2013Tacoma Intl",
+    "city": "Seattle",
+    "country": "USA",
+    "latitude": 47.4502,
+    "longitude": -122.3088
+  },
+  {
+    "iata": "SFO",
+    "name": "San Francisco Intl",
+    "city": "San Francisco",
+    "country": "USA",
+    "latitude": 37.6213,
+    "longitude": -122.379
+  },
+  {
+    "iata": "SJC",
+    "name": "San Jos\u00e9 Mineta Intl",
+    "city": "San Jose",
+    "country": "USA",
+    "latitude": 37.3639,
+    "longitude": -121.9289
+  },
+  {
+    "iata": "SAN",
+    "name": "San Diego Intl",
+    "city": "San Diego",
+    "country": "USA",
+    "latitude": 32.7338,
+    "longitude": -117.1933
+  },
+  {
+    "iata": "PHX",
+    "name": "Phoenix Sky Harbor Intl",
+    "city": "Phoenix",
+    "country": "USA",
+    "latitude": 33.4373,
+    "longitude": -112.0078
+  },
+  {
+    "iata": "LAS",
+    "name": "Harry Reid Intl",
+    "city": "Las Vegas",
+    "country": "USA",
+    "latitude": 36.084,
+    "longitude": -115.1537
+  },
+  {
+    "iata": "SLC",
+    "name": "Salt Lake City Intl",
+    "city": "Salt Lake City",
+    "country": "USA",
+    "latitude": 40.7899,
+    "longitude": -111.9791
+  },
+  {
+    "iata": "PDX",
+    "name": "Portland Intl",
+    "city": "Portland",
+    "country": "USA",
+    "latitude": 45.5898,
+    "longitude": -122.5951
+  },
+  {
+    "iata": "MSP",
+    "name": "Minneapolis\u2013Saint Paul Intl",
+    "city": "Minneapolis",
+    "country": "USA",
+    "latitude": 44.8848,
+    "longitude": -93.2223
+  },
+  {
+    "iata": "DTW",
+    "name": "Detroit Metro",
+    "city": "Detroit",
+    "country": "USA",
+    "latitude": 42.2124,
+    "longitude": -83.3534
+  },
+  {
+    "iata": "CLT",
+    "name": "Charlotte Douglas Intl",
+    "city": "Charlotte",
+    "country": "USA",
+    "latitude": 35.214,
+    "longitude": -80.9431
+  },
+  {
+    "iata": "MIA",
+    "name": "Miami Intl",
+    "city": "Miami",
+    "country": "USA",
+    "latitude": 25.7959,
+    "longitude": -80.287
+  },
+  {
+    "iata": "FLL",
+    "name": "Fort Lauderdale Intl",
+    "city": "Fort Lauderdale",
+    "country": "USA",
+    "latitude": 26.0726,
+    "longitude": -80.1527
+  },
+  {
+    "iata": "TPA",
+    "name": "Tampa Intl",
+    "city": "Tampa",
+    "country": "USA",
+    "latitude": 27.9755,
+    "longitude": -82.5332
+  },
+  {
+    "iata": "MCO",
+    "name": "Orlando Intl",
+    "city": "Orlando",
+    "country": "USA",
+    "latitude": 28.4312,
+    "longitude": -81.3081
+  },
+  {
+    "iata": "BNA",
+    "name": "Nashville Intl",
+    "city": "Nashville",
+    "country": "USA",
+    "latitude": 36.1263,
+    "longitude": -86.6774
+  },
+  {
+    "iata": "AUS",
+    "name": "Austin\u2013Bergstrom Intl",
+    "city": "Austin",
+    "country": "USA",
+    "latitude": 30.1975,
+    "longitude": -97.6664
+  },
+  {
+    "iata": "IAH",
+    "name": "George Bush Intercontinental",
+    "city": "Houston",
+    "country": "USA",
+    "latitude": 29.9902,
+    "longitude": -95.3368
+  },
+  {
+    "iata": "HOU",
+    "name": "William P. Hobby",
+    "city": "Houston",
+    "country": "USA",
+    "latitude": 29.6454,
+    "longitude": -95.2789
+  },
+  {
+    "iata": "MSY",
+    "name": "Louis Armstrong New Orleans",
+    "city": "New Orleans",
+    "country": "USA",
+    "latitude": 29.9934,
+    "longitude": -90.258
+  },
+  {
+    "iata": "PHL",
+    "name": "Philadelphia Intl",
+    "city": "Philadelphia",
+    "country": "USA",
+    "latitude": 39.8744,
+    "longitude": -75.2424
+  },
+  {
+    "iata": "BWI",
+    "name": "Baltimore/Washington Intl",
+    "city": "Baltimore",
+    "country": "USA",
+    "latitude": 39.1754,
+    "longitude": -76.6684
+  },
+  {
+    "iata": "RDU",
+    "name": "Raleigh\u2013Durham Intl",
+    "city": "Raleigh",
+    "country": "USA",
+    "latitude": 35.8801,
+    "longitude": -78.788
+  },
+  {
+    "iata": "SMF",
+    "name": "Sacramento Intl",
+    "city": "Sacramento",
+    "country": "USA",
+    "latitude": 38.6951,
+    "longitude": -121.5908
+  },
+  {
+    "iata": "STL",
+    "name": "St. Louis Lambert Intl",
+    "city": "St. Louis",
+    "country": "USA",
+    "latitude": 38.75,
+    "longitude": -90.37
+  },
+  {
+    "iata": "CLE",
+    "name": "Cleveland Hopkins Intl",
+    "city": "Cleveland",
+    "country": "USA",
+    "latitude": 41.4117,
+    "longitude": -81.8498
+  },
+  {
+    "iata": "CMH",
+    "name": "John Glenn Columbus Intl",
+    "city": "Columbus",
+    "country": "USA",
+    "latitude": 39.998,
+    "longitude": -82.8919
+  },
+  {
+    "iata": "PIT",
+    "name": "Pittsburgh Intl",
+    "city": "Pittsburgh",
+    "country": "USA",
+    "latitude": 40.4914,
+    "longitude": -80.2329
+  },
+  {
+    "iata": "SNA",
+    "name": "John Wayne",
+    "city": "Orange County",
+    "country": "USA",
+    "latitude": 33.6757,
+    "longitude": -117.8678
+  },
+  {
+    "iata": "ONT",
+    "name": "Ontario Intl",
+    "city": "Ontario",
+    "country": "USA",
+    "latitude": 34.056,
+    "longitude": -117.6012
+  },
+  {
+    "iata": "OAK",
+    "name": "Oakland Intl",
+    "city": "Oakland",
+    "country": "USA",
+    "latitude": 37.7126,
+    "longitude": -122.2197
+  },
+  {
+    "iata": "MKE",
+    "name": "Milwaukee Mitchell",
+    "city": "Milwaukee",
+    "country": "USA",
+    "latitude": 42.9472,
+    "longitude": -87.8966
+  },
+  {
+    "iata": "RSW",
+    "name": "Southwest Florida Intl",
+    "city": "Fort Myers",
+    "country": "USA",
+    "latitude": 26.5362,
+    "longitude": -81.7552
+  },
+  {
+    "iata": "SJU",
+    "name": "Luis Mu\u00f1oz Mar\u00edn Intl",
+    "city": "San Juan",
+    "country": "Puerto Rico",
+    "latitude": 18.4394,
+    "longitude": -66.001
+  },
+  {
+    "iata": "YYZ",
+    "name": "Toronto Pearson",
+    "city": "Toronto",
+    "country": "Canada",
+    "latitude": 43.6777,
+    "longitude": -79.6248
+  },
+  {
+    "iata": "YVR",
+    "name": "Vancouver Intl",
+    "city": "Vancouver",
+    "country": "Canada",
+    "latitude": 49.1951,
+    "longitude": -123.1779
+  },
+  {
+    "iata": "YYC",
+    "name": "Calgary Intl",
+    "city": "Calgary",
+    "country": "Canada",
+    "latitude": 51.122,
+    "longitude": -114.0123
+  },
+  {
+    "iata": "YUL",
+    "name": "Montr\u00e9al\u2013Trudeau",
+    "city": "Montreal",
+    "country": "Canada",
+    "latitude": 45.4706,
+    "longitude": -73.7408
+  },
+  {
+    "iata": "YOW",
+    "name": "Ottawa Intl",
+    "city": "Ottawa",
+    "country": "Canada",
+    "latitude": 45.3238,
+    "longitude": -75.6692
+  },
+  {
+    "iata": "MEX",
+    "name": "Mexico City Intl",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "latitude": 19.4361,
+    "longitude": -99.0719
+  },
+  {
+    "iata": "CUN",
+    "name": "Canc\u00fan Intl",
+    "city": "Canc\u00fan",
+    "country": "Mexico",
+    "latitude": 21.0365,
+    "longitude": -86.8771
+  },
+  {
+    "iata": "GDL",
+    "name": "Guadalajara Intl",
+    "city": "Guadalajara",
+    "country": "Mexico",
+    "latitude": 20.5218,
+    "longitude": -103.3112
+  },
+  {
+    "iata": "MTY",
+    "name": "Monterrey Intl",
+    "city": "Monterrey",
+    "country": "Mexico",
+    "latitude": 25.7785,
+    "longitude": -100.1077
+  },
+  {
+    "iata": "GRU",
+    "name": "S\u00e3o Paulo\u2013Guarulhos",
+    "city": "S\u00e3o Paulo",
+    "country": "Brazil",
+    "latitude": -23.4356,
+    "longitude": -46.4731
+  },
+  {
+    "iata": "GIG",
+    "name": "Rio de Janeiro\u2013Gale\u00e3o",
+    "city": "Rio de Janeiro",
+    "country": "Brazil",
+    "latitude": -22.809,
+    "longitude": -43.2506
+  },
+  {
+    "iata": "BSB",
+    "name": "Bras\u00edlia Intl",
+    "city": "Bras\u00edlia",
+    "country": "Brazil",
+    "latitude": -15.8697,
+    "longitude": -47.9208
+  },
+  {
+    "iata": "SCL",
+    "name": "Santiago Intl",
+    "city": "Santiago",
+    "country": "Chile",
+    "latitude": -33.3929,
+    "longitude": -70.7858
+  },
+  {
+    "iata": "EZE",
+    "name": "Buenos Aires Ezeiza",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "latitude": -34.8128,
+    "longitude": -58.5394
+  },
+  {
+    "iata": "LIM",
+    "name": "Lima Jorge Ch\u00e1vez",
+    "city": "Lima",
+    "country": "Peru",
+    "latitude": -12.0219,
+    "longitude": -77.1143
+  },
+  {
+    "iata": "BOG",
+    "name": "Bogot\u00e1 El Dorado",
+    "city": "Bogot\u00e1",
+    "country": "Colombia",
+    "latitude": 4.7016,
+    "longitude": -74.1469
+  },
+  {
+    "iata": "UIO",
+    "name": "Quito Mariscal Sucre",
+    "city": "Quito",
+    "country": "Ecuador",
+    "latitude": -0.1291,
+    "longitude": -78.3575
+  },
+  {
+    "iata": "GYE",
+    "name": "Guayaquil Jos\u00e9 Joaqu\u00edn",
+    "city": "Guayaquil",
+    "country": "Ecuador",
+    "latitude": -2.1574,
+    "longitude": -79.8836
+  },
+  {
+    "iata": "LHR",
+    "name": "London Heathrow",
+    "city": "London",
+    "country": "UK",
+    "latitude": 51.47,
+    "longitude": -0.4543
+  },
+  {
+    "iata": "LGW",
+    "name": "London Gatwick",
+    "city": "London",
+    "country": "UK",
+    "latitude": 51.1537,
+    "longitude": -0.1821
+  },
+  {
+    "iata": "MAN",
+    "name": "Manchester",
+    "city": "Manchester",
+    "country": "UK",
+    "latitude": 53.365,
+    "longitude": -2.2724
+  },
+  {
+    "iata": "DUB",
+    "name": "Dublin",
+    "city": "Dublin",
+    "country": "Ireland",
+    "latitude": 53.4273,
+    "longitude": -6.2436
+  },
+  {
+    "iata": "CDG",
+    "name": "Paris Charles de Gaulle",
+    "city": "Paris",
+    "country": "France",
+    "latitude": 49.0097,
+    "longitude": 2.5479
+  },
+  {
+    "iata": "ORY",
+    "name": "Paris Orly",
+    "city": "Paris",
+    "country": "France",
+    "latitude": 48.7233,
+    "longitude": 2.3794
+  },
+  {
+    "iata": "AMS",
+    "name": "Amsterdam Schiphol",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "latitude": 52.3105,
+    "longitude": 4.7683
+  },
+  {
+    "iata": "FRA",
+    "name": "Frankfurt",
+    "city": "Frankfurt",
+    "country": "Germany",
+    "latitude": 50.0379,
+    "longitude": 8.5622
+  },
+  {
+    "iata": "MUC",
+    "name": "Munich",
+    "city": "Munich",
+    "country": "Germany",
+    "latitude": 48.3538,
+    "longitude": 11.7861
+  },
+  {
+    "iata": "BER",
+    "name": "Berlin Brandenburg",
+    "city": "Berlin",
+    "country": "Germany",
+    "latitude": 52.3667,
+    "longitude": 13.5033
+  },
+  {
+    "iata": "ZRH",
+    "name": "Zurich",
+    "city": "Zurich",
+    "country": "Switzerland",
+    "latitude": 47.4581,
+    "longitude": 8.5555
+  },
+  {
+    "iata": "VIE",
+    "name": "Vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "latitude": 48.1103,
+    "longitude": 16.5697
+  },
+  {
+    "iata": "CPH",
+    "name": "Copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "latitude": 55.618,
+    "longitude": 12.6508
+  },
+  {
+    "iata": "OSL",
+    "name": "Oslo Gardermoen",
+    "city": "Oslo",
+    "country": "Norway",
+    "latitude": 60.1976,
+    "longitude": 11.1004
+  },
+  {
+    "iata": "ARN",
+    "name": "Stockholm Arlanda",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "latitude": 59.6519,
+    "longitude": 17.9186
+  },
+  {
+    "iata": "HEL",
+    "name": "Helsinki Vantaa",
+    "city": "Helsinki",
+    "country": "Finland",
+    "latitude": 60.3172,
+    "longitude": 24.9633
+  },
+  {
+    "iata": "MAD",
+    "name": "Madrid Barajas",
+    "city": "Madrid",
+    "country": "Spain",
+    "latitude": 40.4983,
+    "longitude": -3.5676
+  },
+  {
+    "iata": "BCN",
+    "name": "Barcelona El Prat",
+    "city": "Barcelona",
+    "country": "Spain",
+    "latitude": 41.2974,
+    "longitude": 2.0833
+  },
+  {
+    "iata": "LIS",
+    "name": "Lisbon",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "latitude": 38.7742,
+    "longitude": -9.1342
+  },
+  {
+    "iata": "FCO",
+    "name": "Rome Fiumicino",
+    "city": "Rome",
+    "country": "Italy",
+    "latitude": 41.8003,
+    "longitude": 12.2389
+  },
+  {
+    "iata": "MXP",
+    "name": "Milan Malpensa",
+    "city": "Milan",
+    "country": "Italy",
+    "latitude": 45.6301,
+    "longitude": 8.7231
+  },
+  {
+    "iata": "ATH",
+    "name": "Athens",
+    "city": "Athens",
+    "country": "Greece",
+    "latitude": 37.9364,
+    "longitude": 23.9445
+  },
+  {
+    "iata": "IST",
+    "name": "Istanbul",
+    "city": "Istanbul",
+    "country": "T\u00fcrkiye",
+    "latitude": 41.2753,
+    "longitude": 28.7519
+  },
+  {
+    "iata": "SAW",
+    "name": "Sabiha G\u00f6k\u00e7en",
+    "city": "Istanbul",
+    "country": "T\u00fcrkiye",
+    "latitude": 40.8986,
+    "longitude": 29.3092
+  },
+  {
+    "iata": "PRG",
+    "name": "Prague",
+    "city": "Prague",
+    "country": "Czechia",
+    "latitude": 50.1008,
+    "longitude": 14.26
+  },
+  {
+    "iata": "WAW",
+    "name": "Warsaw Chopin",
+    "city": "Warsaw",
+    "country": "Poland",
+    "latitude": 52.1657,
+    "longitude": 20.9671
+  },
+  {
+    "iata": "BUD",
+    "name": "Budapest",
+    "city": "Budapest",
+    "country": "Hungary",
+    "latitude": 47.4369,
+    "longitude": 19.2556
+  },
+  {
+    "iata": "BEG",
+    "name": "Belgrade",
+    "city": "Belgrade",
+    "country": "Serbia",
+    "latitude": 44.8184,
+    "longitude": 20.3091
+  },
+  {
+    "iata": "ZAG",
+    "name": "Zagreb",
+    "city": "Zagreb",
+    "country": "Croatia",
+    "latitude": 45.7429,
+    "longitude": 16.0688
+  },
+  {
+    "iata": "SVO",
+    "name": "Moscow Sheremetyevo",
+    "city": "Moscow",
+    "country": "Russia",
+    "latitude": 55.9726,
+    "longitude": 37.4146
+  },
+  {
+    "iata": "DME",
+    "name": "Moscow Domodedovo",
+    "city": "Moscow",
+    "country": "Russia",
+    "latitude": 55.4086,
+    "longitude": 37.9061
+  },
+  {
+    "iata": "LED",
+    "name": "St. Petersburg Pulkovo",
+    "city": "St. Petersburg",
+    "country": "Russia",
+    "latitude": 59.8003,
+    "longitude": 30.2625
+  },
+  {
+    "iata": "DXB",
+    "name": "Dubai Intl",
+    "city": "Dubai",
+    "country": "UAE",
+    "latitude": 25.2532,
+    "longitude": 55.3657
+  },
+  {
+    "iata": "AUH",
+    "name": "Abu Dhabi",
+    "city": "Abu Dhabi",
+    "country": "UAE",
+    "latitude": 24.433,
+    "longitude": 54.6511
+  },
+  {
+    "iata": "DOH",
+    "name": "Hamad Intl",
+    "city": "Doha",
+    "country": "Qatar",
+    "latitude": 25.273,
+    "longitude": 51.608
+  },
+  {
+    "iata": "JED",
+    "name": "Jeddah",
+    "city": "Jeddah",
+    "country": "Saudi Arabia",
+    "latitude": 21.6796,
+    "longitude": 39.1565
+  },
+  {
+    "iata": "RUH",
+    "name": "Riyadh",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "latitude": 24.9576,
+    "longitude": 46.6988
+  },
+  {
+    "iata": "AMM",
+    "name": "Queen Alia",
+    "city": "Amman",
+    "country": "Jordan",
+    "latitude": 31.7226,
+    "longitude": 35.9932
+  },
+  {
+    "iata": "TLV",
+    "name": "Ben Gurion",
+    "city": "Tel Aviv",
+    "country": "Israel",
+    "latitude": 32.005,
+    "longitude": 34.8854
+  },
+  {
+    "iata": "CAI",
+    "name": "Cairo Intl",
+    "city": "Cairo",
+    "country": "Egypt",
+    "latitude": 30.112,
+    "longitude": 31.4
+  },
+  {
+    "iata": "ADD",
+    "name": "Addis Ababa Bole",
+    "city": "Addis Ababa",
+    "country": "Ethiopia",
+    "latitude": 8.9779,
+    "longitude": 38.7993
+  },
+  {
+    "iata": "NBO",
+    "name": "Nairobi Jomo Kenyatta",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "latitude": -1.3192,
+    "longitude": 36.9278
+  },
+  {
+    "iata": "DAR",
+    "name": "Dar es Salaam",
+    "city": "Dar es Salaam",
+    "country": "Tanzania",
+    "latitude": -6.8781,
+    "longitude": 39.2026
+  },
+  {
+    "iata": "JNB",
+    "name": "Johannesburg OR Tambo",
+    "city": "Johannesburg",
+    "country": "South Africa",
+    "latitude": -26.1337,
+    "longitude": 28.242
+  },
+  {
+    "iata": "CPT",
+    "name": "Cape Town",
+    "city": "Cape Town",
+    "country": "South Africa",
+    "latitude": -33.97,
+    "longitude": 18.5972
+  },
+  {
+    "iata": "CMN",
+    "name": "Casablanca Mohammed V",
+    "city": "Casablanca",
+    "country": "Morocco",
+    "latitude": 33.3675,
+    "longitude": -7.5899
+  },
+  {
+    "iata": "RAK",
+    "name": "Marrakesh Menara",
+    "city": "Marrakesh",
+    "country": "Morocco",
+    "latitude": 31.6069,
+    "longitude": -8.0363
+  },
+  {
+    "iata": "HKG",
+    "name": "Hong Kong Intl",
+    "city": "Hong Kong",
+    "country": "China",
+    "latitude": 22.308,
+    "longitude": 113.9185
+  },
+  {
+    "iata": "MFM",
+    "name": "Macau Intl",
+    "city": "Macau",
+    "country": "China",
+    "latitude": 22.1496,
+    "longitude": 113.5925
+  },
+  {
+    "iata": "TPE",
+    "name": "Taipei Taoyuan",
+    "city": "Taipei",
+    "country": "Taiwan",
+    "latitude": 25.0797,
+    "longitude": 121.234
+  },
+  {
+    "iata": "KHH",
+    "name": "Kaohsiung Intl",
+    "city": "Kaohsiung",
+    "country": "Taiwan",
+    "latitude": 22.5771,
+    "longitude": 120.3493
+  },
+  {
+    "iata": "ICN",
+    "name": "Incheon Intl",
+    "city": "Seoul",
+    "country": "South Korea",
+    "latitude": 37.4602,
+    "longitude": 126.4407
+  },
+  {
+    "iata": "GMP",
+    "name": "Gimpo",
+    "city": "Seoul",
+    "country": "South Korea",
+    "latitude": 37.5583,
+    "longitude": 126.7906
+  },
+  {
+    "iata": "NRT",
+    "name": "Narita",
+    "city": "Tokyo",
+    "country": "Japan",
+    "latitude": 35.772,
+    "longitude": 140.3929
+  },
+  {
+    "iata": "HND",
+    "name": "Haneda",
+    "city": "Tokyo",
+    "country": "Japan",
+    "latitude": 35.5494,
+    "longitude": 139.7798
+  },
+  {
+    "iata": "KIX",
+    "name": "Kansai",
+    "city": "Osaka",
+    "country": "Japan",
+    "latitude": 34.4347,
+    "longitude": 135.244
+  },
+  {
+    "iata": "NGO",
+    "name": "Chubu Centrair",
+    "city": "Nagoya",
+    "country": "Japan",
+    "latitude": 34.8584,
+    "longitude": 136.805
+  },
+  {
+    "iata": "CTS",
+    "name": "New Chitose",
+    "city": "Sapporo",
+    "country": "Japan",
+    "latitude": 42.7752,
+    "longitude": 141.6923
+  },
+  {
+    "iata": "FUK",
+    "name": "Fukuoka",
+    "city": "Fukuoka",
+    "country": "Japan",
+    "latitude": 33.5859,
+    "longitude": 130.45
+  },
+  {
+    "iata": "OKA",
+    "name": "Naha",
+    "city": "Okinawa",
+    "country": "Japan",
+    "latitude": 26.2068,
+    "longitude": 127.6469
+  },
+  {
+    "iata": "PEK",
+    "name": "Beijing Capital",
+    "city": "Beijing",
+    "country": "China",
+    "latitude": 40.0801,
+    "longitude": 116.5846
+  },
+  {
+    "iata": "PKX",
+    "name": "Beijing Daxing",
+    "city": "Beijing",
+    "country": "China",
+    "latitude": 39.5099,
+    "longitude": 116.4108
+  },
+  {
+    "iata": "PVG",
+    "name": "Shanghai Pudong",
+    "city": "Shanghai",
+    "country": "China",
+    "latitude": 31.1443,
+    "longitude": 121.8083
+  },
+  {
+    "iata": "SHA",
+    "name": "Shanghai Hongqiao",
+    "city": "Shanghai",
+    "country": "China",
+    "latitude": 31.1979,
+    "longitude": 121.3363
+  },
+  {
+    "iata": "CAN",
+    "name": "Guangzhou Baiyun",
+    "city": "Guangzhou",
+    "country": "China",
+    "latitude": 23.3924,
+    "longitude": 113.2988
+  },
+  {
+    "iata": "SZX",
+    "name": "Shenzhen Bao'an",
+    "city": "Shenzhen",
+    "country": "China",
+    "latitude": 22.6393,
+    "longitude": 113.8107
+  },
+  {
+    "iata": "XMN",
+    "name": "Xiamen Gaoqi",
+    "city": "Xiamen",
+    "country": "China",
+    "latitude": 24.5441,
+    "longitude": 118.127
+  },
+  {
+    "iata": "CTU",
+    "name": "Chengdu Shuangliu",
+    "city": "Chengdu",
+    "country": "China",
+    "latitude": 30.5785,
+    "longitude": 103.9471
+  },
+  {
+    "iata": "TFU",
+    "name": "Chengdu Tianfu",
+    "city": "Chengdu",
+    "country": "China",
+    "latitude": 30.3133,
+    "longitude": 104.441
+  },
+  {
+    "iata": "KMG",
+    "name": "Kunming Changshui",
+    "city": "Kunming",
+    "country": "China",
+    "latitude": 25.1019,
+    "longitude": 102.9292
+  },
+  {
+    "iata": "WUH",
+    "name": "Wuhan Tianhe",
+    "city": "Wuhan",
+    "country": "China",
+    "latitude": 30.7838,
+    "longitude": 114.2081
+  },
+  {
+    "iata": "XIY",
+    "name": "Xi'an Xianyang",
+    "city": "Xi'an",
+    "country": "China",
+    "latitude": 34.4471,
+    "longitude": 108.7516
+  },
+  {
+    "iata": "HGH",
+    "name": "Hangzhou Xiaoshan",
+    "city": "Hangzhou",
+    "country": "China",
+    "latitude": 30.2295,
+    "longitude": 120.4345
+  },
+  {
+    "iata": "NKG",
+    "name": "Nanjing Lukou",
+    "city": "Nanjing",
+    "country": "China",
+    "latitude": 31.742,
+    "longitude": 118.861
+  },
+  {
+    "iata": "CSX",
+    "name": "Changsha Huanghua",
+    "city": "Changsha",
+    "country": "China",
+    "latitude": 28.1933,
+    "longitude": 113.2146
+  },
+  {
+    "iata": "CKG",
+    "name": "Chongqing Jiangbei",
+    "city": "Chongqing",
+    "country": "China",
+    "latitude": 29.7192,
+    "longitude": 106.6417
+  },
+  {
+    "iata": "HKT",
+    "name": "Phuket Intl",
+    "city": "Phuket",
+    "country": "Thailand",
+    "latitude": 8.1132,
+    "longitude": 98.3169
+  },
+  {
+    "iata": "BKK",
+    "name": "Bangkok Suvarnabhumi",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "latitude": 13.69,
+    "longitude": 100.7501
+  },
+  {
+    "iata": "DMK",
+    "name": "Don Mueang",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "latitude": 13.9126,
+    "longitude": 100.6068
+  },
+  {
+    "iata": "SGN",
+    "name": "Tan Son Nhat",
+    "city": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "latitude": 10.8188,
+    "longitude": 106.6518
+  },
+  {
+    "iata": "HAN",
+    "name": "Noi Bai",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "latitude": 21.2187,
+    "longitude": 105.8042
+  },
+  {
+    "iata": "KUL",
+    "name": "Kuala Lumpur Intl",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "latitude": 2.7456,
+    "longitude": 101.7072
+  },
+  {
+    "iata": "CGK",
+    "name": "Soekarno\u2013Hatta",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "latitude": -6.1256,
+    "longitude": 106.6559
+  },
+  {
+    "iata": "DPS",
+    "name": "Ngurah Rai",
+    "city": "Denpasar",
+    "country": "Indonesia",
+    "latitude": -8.7485,
+    "longitude": 115.167
+  },
+  {
+    "iata": "MNL",
+    "name": "Ninoy Aquino",
+    "city": "Manila",
+    "country": "Philippines",
+    "latitude": 14.5086,
+    "longitude": 121.0198
+  },
+  {
+    "iata": "DEL",
+    "name": "Indira Gandhi",
+    "city": "Delhi",
+    "country": "India",
+    "latitude": 28.5562,
+    "longitude": 77.1
+  },
+  {
+    "iata": "BOM",
+    "name": "Chhatrapati Shivaji",
+    "city": "Mumbai",
+    "country": "India",
+    "latitude": 19.0896,
+    "longitude": 72.8656
+  },
+  {
+    "iata": "BLR",
+    "name": "Kempegowda",
+    "city": "Bengaluru",
+    "country": "India",
+    "latitude": 13.1989,
+    "longitude": 77.7063
+  },
+  {
+    "iata": "MAA",
+    "name": "Chennai Intl",
+    "city": "Chennai",
+    "country": "India",
+    "latitude": 12.9941,
+    "longitude": 80.1709
+  },
+  {
+    "iata": "HYD",
+    "name": "Rajiv Gandhi",
+    "city": "Hyderabad",
+    "country": "India",
+    "latitude": 17.2403,
+    "longitude": 78.4294
+  },
+  {
+    "iata": "CCU",
+    "name": "Netaji Subhas Chandra Bose",
+    "city": "Kolkata",
+    "country": "India",
+    "latitude": 22.6547,
+    "longitude": 88.4467
+  },
+  {
+    "iata": "COK",
+    "name": "Cochin Intl",
+    "city": "Kochi",
+    "country": "India",
+    "latitude": 10.1518,
+    "longitude": 76.391
+  },
+  {
+    "iata": "MLE",
+    "name": "Velana",
+    "city": "Mal\u00e9",
+    "country": "Maldives",
+    "latitude": 4.1918,
+    "longitude": 73.5291
+  },
+  {
+    "iata": "SYD",
+    "name": "Sydney Kingsford Smith",
+    "city": "Sydney",
+    "country": "Australia",
+    "latitude": -33.9399,
+    "longitude": 151.1753
+  },
+  {
+    "iata": "MEL",
+    "name": "Melbourne Tullamarine",
+    "city": "Melbourne",
+    "country": "Australia",
+    "latitude": -37.669,
+    "longitude": 144.841
+  },
+  {
+    "iata": "BNE",
+    "name": "Brisbane",
+    "city": "Brisbane",
+    "country": "Australia",
+    "latitude": -27.3842,
+    "longitude": 153.1175
+  },
+  {
+    "iata": "PER",
+    "name": "Perth",
+    "city": "Perth",
+    "country": "Australia",
+    "latitude": -31.9403,
+    "longitude": 115.9672
+  },
+  {
+    "iata": "ADL",
+    "name": "Adelaide",
+    "city": "Adelaide",
+    "country": "Australia",
+    "latitude": -34.9382,
+    "longitude": 138.5376
+  },
+  {
+    "iata": "AKL",
+    "name": "Auckland",
+    "city": "Auckland",
+    "country": "New Zealand",
+    "latitude": -37.0082,
+    "longitude": 174.7917
+  },
+  {
+    "iata": "WLG",
+    "name": "Wellington",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "latitude": -41.3272,
+    "longitude": 174.805
+  },
+  {
+    "iata": "CHC",
+    "name": "Christchurch",
+    "city": "Christchurch",
+    "country": "New Zealand",
+    "latitude": -43.4894,
+    "longitude": 172.5322
+  },
+  {
+    "iata": "LGA",
+    "name": "LaGuardia",
+    "city": "New York",
+    "country": "USA",
+    "latitude": 40.7769,
+    "longitude": -73.874
+  },
+  {
+    "iata": "DUS",
+    "name": "D\u00fcsseldorf",
+    "city": "D\u00fcsseldorf",
+    "country": "Germany",
+    "latitude": 51.2895,
+    "longitude": 6.7668
+  },
+  {
+    "iata": "HAM",
+    "name": "Hamburg",
+    "city": "Hamburg",
+    "country": "Germany",
+    "latitude": 53.6304,
+    "longitude": 9.9882
+  },
+  {
+    "iata": "BRU",
+    "name": "Brussels",
+    "city": "Brussels",
+    "country": "Belgium",
+    "latitude": 50.9009,
+    "longitude": 4.4844
+  },
+  {
+    "iata": "GVA",
+    "name": "Geneva",
+    "city": "Geneva",
+    "country": "Switzerland",
+    "latitude": 46.2381,
+    "longitude": 6.1099
+  },
+  {
+    "iata": "LYS",
+    "name": "Lyon Saint-Exup\u00e9ry",
+    "city": "Lyon",
+    "country": "France",
+    "latitude": 45.7256,
+    "longitude": 5.0811
+  },
+  {
+    "iata": "NCE",
+    "name": "Nice C\u00f4te d'Azur",
+    "city": "Nice",
+    "country": "France",
+    "latitude": 43.6653,
+    "longitude": 7.215
+  },
+  {
+    "iata": "PMI",
+    "name": "Palma de Mallorca",
+    "city": "Palma",
+    "country": "Spain",
+    "latitude": 39.5517,
+    "longitude": 2.7388
+  },
+  {
+    "iata": "BRI",
+    "name": "Bari Karol Wojty\u0142a",
+    "city": "Bari",
+    "country": "Italy",
+    "latitude": 41.1389,
+    "longitude": 16.7606
+  },
+  {
+    "iata": "KGL",
+    "name": "Kigali Intl",
+    "city": "Kigali",
+    "country": "Rwanda",
+    "latitude": -1.9686,
+    "longitude": 30.1395
+  },
+  {
+    "iata": "ABV",
+    "name": "Abuja Nnamdi Azikiwe",
+    "city": "Abuja",
+    "country": "Nigeria",
+    "latitude": 9.0068,
+    "longitude": 7.2632
+  },
+  {
+    "iata": "LOS",
+    "name": "Lagos Murtala Muhammed",
+    "city": "Lagos",
+    "country": "Nigeria",
+    "latitude": 6.5774,
+    "longitude": 3.3211
+  },
+  {
+    "iata": "ACC",
+    "name": "Kotoka",
+    "city": "Accra",
+    "country": "Ghana",
+    "latitude": 5.6052,
+    "longitude": -0.1718
+  },
+  {
+    "iata": "TUN",
+    "name": "Tunis Carthage",
+    "city": "Tunis",
+    "country": "Tunisia",
+    "latitude": 36.851,
+    "longitude": 10.2272
+  },
+  {
+    "iata": "ALG",
+    "name": "Algiers Houari Boumediene",
+    "city": "Algiers",
+    "country": "Algeria",
+    "latitude": 36.691,
+    "longitude": 3.2154
+  },
+  {
+    "iata": "KRT",
+    "name": "Khartoum Intl",
+    "city": "Khartoum",
+    "country": "Sudan",
+    "latitude": 15.5895,
+    "longitude": 32.5532
+  },
+  {
+    "iata": "CMB",
+    "name": "Colombo Bandaranaike",
+    "city": "Colombo",
+    "country": "Sri Lanka",
+    "latitude": 7.1808,
+    "longitude": 79.8841
+  }
+]
