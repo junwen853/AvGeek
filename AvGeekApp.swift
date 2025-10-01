@@ -1,11 +1,10 @@
-// Build fix for ImageRenderer (guard old SDKs)
-#if canImport(UIKit)
 import SwiftUI
-#endif
-import SwiftUI
-import UIKit
 import Foundation
 import UniformTypeIdentifiers
+
+#if canImport(UIKit)
+import UIKit
+#endif
 
 // ======================================================
 // MARK: - Models
@@ -38,7 +37,7 @@ enum AircraftCategory: String, Codable, CaseIterable, Identifiable {
         }
     }
 
-    // 宽松解码，兼容不同写法（防止 JSON 里“Regional Turboprop”等变体）
+    // 宽松解码，兼容不同写法（防止 JSON 里"Regional Turboprop"等变体）
     init(from decoder: Decoder) throws {
         let c = try decoder.singleValueContainer()
         let original = (try? c.decode(String.self)) ?? ""
@@ -120,14 +119,39 @@ final class DataStore: ObservableObject {
 
     @Published var aircrafts: [Aircraft] = []
     @Published var airports: [Airport] = []
-    @Published var flights: [FlightLog] = [] { didSet { saveFlights() } }
+    @Published var flights: [FlightLog] = [] {
+        didSet {
+            saveFlights()
+            checkNewBadges()
+        }
+    }
     @Published var favorites: Set<String> = [] { didSet { saveFavorites() } }
+    @Published var newBadge: RewardBadge? // recently earned badge for toast
+    @Published var badgeQueue: [RewardBadge] = [] // queue of badges to show
+    @Published var currentBadgeShowsFireworks: Bool = false
+    private var lastEarnedTitles: Set<String> = []
+    private var displayedBadgeTitles: Set<String> = []
+    private let earnedKey = "earned_badge_titles"
+    private let displayedKey = "displayed_badge_titles"
+    private var isRestoringState = true
 
     private init() {
         loadAircrafts()
         loadAirports()
-        loadFlights()
         loadFavorites()
+        if let saved = UserDefaults.standard.array(forKey: earnedKey) as? [String] {
+            lastEarnedTitles = Set(saved)
+        }
+        if let shown = UserDefaults.standard.array(forKey: displayedKey) as? [String] {
+            displayedBadgeTitles = Set(shown)
+        }
+        let earnedNow = computeBadges(store: self).filter { $0.achieved }.map { $0.title }
+        lastEarnedTitles.formUnion(earnedNow)
+        UserDefaults.standard.set(Array(lastEarnedTitles), forKey: earnedKey)
+
+        loadFlights()
+        isRestoringState = false
+        checkNewBadges()
     }
 
     // Bundle JSON loaders
@@ -175,6 +199,61 @@ final class DataStore: ObservableObject {
         UserDefaults.standard.set(Array(favorites), forKey: favKey)
     }
 
+    private func checkNewBadges() {
+        guard !isRestoringState else { return }
+        let earned = computeBadges(store: self).filter { $0.achieved }
+        let currentTitles = Set(earned.map { $0.title })
+        let newOnes = currentTitles.subtracting(lastEarnedTitles)
+        
+        if !newOnes.isEmpty {
+            // Get all new badges
+            let newBadges = earned.filter { newOnes.contains($0.title) }
+            
+            // Persist new state first
+            lastEarnedTitles.formUnion(newOnes)
+            UserDefaults.standard.set(Array(lastEarnedTitles), forKey: earnedKey)
+            
+            let unseenBadges = newBadges.filter { !displayedBadgeTitles.contains($0.title) }
+            guard !unseenBadges.isEmpty else { return }
+            badgeQueue.append(contentsOf: unseenBadges)
+            showNextBadge(playFireworks: true)
+        }
+    }
+    
+    private func showNextBadge(playFireworks: Bool = false) {
+        guard !badgeQueue.isEmpty else { return }
+        let badge = badgeQueue.removeFirst()
+        currentBadgeShowsFireworks = playFireworks
+        displayedBadgeTitles.insert(badge.title)
+        UserDefaults.standard.set(Array(displayedBadgeTitles), forKey: displayedKey)
+
+        // Haptic feedback
+#if canImport(UIKit)
+        let gen = UINotificationFeedbackGenerator()
+        gen.notificationOccurred(.success)
+#endif
+        
+        // Present celebration
+        withAnimation(.spring(response: 0.6, dampingFraction: 0.85)) {
+            self.newBadge = badge
+        }
+    }
+    
+    func dismissCurrentBadge() {
+        guard let current = newBadge else { return }
+
+        withAnimation(.easeInOut(duration: 0.35)) {
+            self.newBadge = nil
+        }
+
+        // Show next badge after a short delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+            if !self.badgeQueue.isEmpty {
+                self.showNextBadge(playFireworks: false)
+            }
+        }
+    }
+
     // Lookups
     func airport(by code: String) -> Airport? {
         airports.first { $0.iata.caseInsensitiveCompare(code) == .orderedSame }
@@ -204,6 +283,40 @@ final class DataStore: ObservableObject {
             guard let ac = aircraft(by: id) else { return nil }
             return (ac, km)
         }.sorted { $0.1 > $1.1 }
+    }
+
+    // Extended Stats (airports/records)
+    /// Visits per airport (count of appearances as origin or destination)
+    func visitsByAirport() -> [(String, Int)] {
+        var count: [String: Int] = [:]
+        for f in flights {
+            count[f.originIATA, default: 0] += 1
+            count[f.destinationIATA, default: 0] += 1
+        }
+        return count.sorted { $0.value > $1.value }
+    }
+
+    /// Distance aggregated by airport (sum of km for flights touching the airport)
+    func distanceByAirport() -> [(String, Double)] {
+        var kmMap: [String: Double] = [:]
+        for f in flights {
+            kmMap[f.originIATA, default: 0] += f.distanceKM
+            kmMap[f.destinationIATA, default: 0] += f.distanceKM
+        }
+        return kmMap.sorted { $0.value > $1.value }
+    }
+
+    /// Top N airports by visits
+    func topAirports(limit: Int = 5) -> [(String, Int)] {
+        Array(visitsByAirport().prefix(limit))
+    }
+
+    /// Longest single flight distance (km)
+    func maxSingleFlightKM() -> Double { flights.map(\.distanceKM).max() ?? 0 }
+
+    /// Whether user has any premium-cabin (Business/First) flights
+    func hasPremiumCabinFlight() -> Bool {
+        flights.contains { $0.cabin == .business || $0.cabin == .first }
     }
 
     // Estimated totals (offline, derived from logs)
@@ -324,6 +437,18 @@ struct SystemTabRootView: View {
         .toolbarBackground(.ultraThinMaterial, for: .tabBar)
         .sheet(isPresented: $compareSheet) {
             CompareView().environmentObject(store).presentationDetents([.large])
+        }
+        .overlay {
+            if let badge = store.newBadge {
+                BadgeCelebrationView(
+                    badge: badge,
+                    hasMore: !store.badgeQueue.isEmpty,
+                    showFireworks: store.currentBadgeShowsFireworks,
+                    onDismiss: { store.dismissCurrentBadge() }
+                )
+                .transition(.opacity.combined(with: .scale))
+                .zIndex(20)
+            }
         }
     }
 }
@@ -717,6 +842,14 @@ struct CompareView: View {
                             compareRow("Range (km)", a.rangeKM.map(String.init) ?? "—", b.rangeKM.map(String.init) ?? "—")
                             compareRow("Cruise (km/h)", a.cruiseSpeedKMH.map(String.init) ?? "—", b.cruiseSpeedKMH.map(String.init) ?? "—")
                             compareRow("Seating", a.typicalSeating ?? "—", b.typicalSeating ?? "—")
+                            compareRow("Fuel burn (kg/h)",
+                                       a.fuelBurnKgPerHour.map { String(Int($0)) } ?? "—",
+                                       b.fuelBurnKgPerHour.map { String(Int($0)) } ?? "—")
+                        }
+                        Section("My stats") {
+                            let aMy = store.flights.filter { $0.aircraftID == a.id }.map(\.distanceKM).reduce(0,+)
+                            let bMy = store.flights.filter { $0.aircraftID == b.id }.map(\.distanceKM).reduce(0,+)
+                            compareRow("My distance (km)", String(Int(aMy)), String(Int(bMy)))
                         }
                     }
                 } else {
@@ -1061,6 +1194,25 @@ struct StatsView: View {
                         HStack { Text(ac.name); Spacer(); Text("\(Int(km))") }
                     }
                 }
+                Section("By airport (visits)") {
+                    let top = Array(store.visitsByAirport().prefix(10))
+                    if top.isEmpty { Text("No data yet").foregroundStyle(.secondary) }
+                    else {
+                        ForEach(top, id: \.0) { (code, times) in
+                            HStack { Text(code); Spacer(); Text("\(times)") }
+                        }
+                    }
+                }
+
+                Section("By airport (km)") {
+                    let top = Array(store.distanceByAirport().prefix(10))
+                    if top.isEmpty { Text("No data yet").foregroundStyle(.secondary) }
+                    else {
+                        ForEach(top, id: \.0) { (code, km) in
+                            HStack { Text(code); Spacer(); Text("\(Int(km))") }
+                        }
+                    }
+                }
                 Section("Top 3 aircraft (my km)") {
                     let top3 = Array(store.distanceByAircraft().prefix(3))
                     if top3.isEmpty {
@@ -1224,7 +1376,7 @@ struct YearSummaryView: View {
             VStack(spacing: 16) {
                 SummaryCard(store: store)
                     .frame(width: 320, height: 460)
-                    .background(Color(.systemBackground))
+                    .background(Color(UIColor.systemBackground))
                     .cornerRadius(16)
                     .shadow(radius: 8)
                     .padding()
@@ -1238,12 +1390,14 @@ struct YearSummaryView: View {
     }
 
     private func exportCard() {
+#if canImport(UIKit)
         let renderer = ImageRenderer(content: SummaryCard(store: store).frame(width: 1080, height: 1550))
         if let ui = renderer.uiImage, let data = ui.pngData() {
             let url = FileManager.default.temporaryDirectory.appendingPathComponent("avgeek_summary_\(Int(Date().timeIntervalSince1970)).png")
             try? data.write(to: url, options: [.atomic])
             imageURL = url
         }
+#endif
     }
 }
 
@@ -1263,6 +1417,16 @@ struct SummaryCard: View {
                     HStack { Text("Total distance"); Spacer(); Text("\(totalKm) km").bold() }
                     HStack { Text("Flights"); Spacer(); Text("\(flights)").bold() }
                     HStack { Text("Top aircraft"); Spacer(); Text(topAC?.name ?? "—").bold() }
+                    if let topAirport = store.topAirports(limit: 1).first { HStack { Text("Top airport"); Spacer(); Text(topAirport.0).bold() } }
+                    let longest = Int(store.maxSingleFlightKM())
+                    if longest > 0 { HStack { Text("Longest flight"); Spacer(); Text("\(longest) km").bold() } }
+                    // Badges summary (earned count + top 3 names)
+                    let earned = computeBadges(store: store).filter { $0.achieved }
+                    HStack { Text("Badges"); Spacer(); Text("\(earned.count)").bold() }
+                    let topBadgeStr = earned.prefix(3).map { $0.title }.joined(separator: " • ")
+                    if !topBadgeStr.isEmpty {
+                        HStack { Text("Top badges"); Spacer(); Text(topBadgeStr).bold().multilineTextAlignment(.trailing) }
+                    }
                     HStack { Text("Estimated CO₂"); Spacer(); Text(String(format: "%.2f t", co2t)).bold() }
                 }
                 .font(.headline)
@@ -1287,29 +1451,32 @@ private func norm(_ s: String) -> String {
      .replacingOccurrences(of: "_", with: "")
 }
 
-private func manufacturerLogoAssetName(for manufacturer: String) -> String? {
-    let k = norm(manufacturer)
-    let map: [String: String] = [
-        "boeing": "boeing",
-        "airbus": "airbus",
-        "atr": "atr",
-        "embraer": "embraer",
-        "comac": "comac",
-        "irkut": "irkut",
-        "sukhoi": "sukhoi",
-        "mcdonnelldouglas": "mcdonnelldouglas",
-        "dehavilland": "dehavilland",
-        "dehavillandcanada": "dehavilland",
-        "fokker": "fokker"
-    ]
-    guard let name = map[k] else { return nil }
-    if UIImage(named: name) != nil { return name }
-    if UIImage(named: "logos/\(name)") != nil { return "logos/\(name)" }
-    return nil
-}
+    private func manufacturerLogoAssetName(for manufacturer: String) -> String? {
+        let k = norm(manufacturer)
+        let map: [String: String] = [
+            "boeing": "boeing",
+            "airbus": "airbus",
+            "atr": "atr",
+            "embraer": "embraer",
+            "comac": "comac",
+            "irkut": "irkut",
+            "sukhoi": "sukhoi",
+            "mcdonnelldouglas": "mcdonnelldouglas",
+            "dehavilland": "dehavilland",
+            "dehavillandcanada": "dehavilland",
+            "fokker": "fokker"
+        ]
+        guard let name = map[k] else { return nil }
+#if canImport(UIKit)
+        if UIImage(named: name) != nil { return name }
+        if UIImage(named: "logos/\(name)") != nil { return "logos/\(name)" }
+#endif
+        return nil
+    }
 
 @ViewBuilder
 private func aircraftThumbnail(for ac: Aircraft) -> some View {
+#if canImport(UIKit)
     if let first = ac.imageNames.first, UIImage(named: first) != nil {
         Image(first)
             .resizable()
@@ -1330,6 +1497,15 @@ private func aircraftThumbnail(for ac: Aircraft) -> some View {
                     .foregroundStyle(.secondary)
             )
     }
+#else
+    RoundedRectangle(cornerRadius: 8)
+        .fill(Color(.quaternarySystemFill))
+        .overlay(
+            Image(systemName: "airplane")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        )
+#endif
 }
 
 // ======================================================
@@ -1404,6 +1580,24 @@ func computeBadges(store: DataStore) -> [RewardBadge] {
             )
         )
     }
+    // Record badges
+    let longest = Int(store.maxSingleFlightKM())
+    if longest >= 5000 {
+        badges.append(RewardBadge(title: "Long-Haul", icon: "airplane", achieved: true, detail: "Longest flight: \(longest) km"))
+    } else if longest > 0 {
+        badges.append(RewardBadge(title: "Long-Haul", icon: "airplane", achieved: false, detail: "Next: 5000 km • Current: \(longest) km"))
+    }
+
+    // Cabin-based badge
+    let premium = store.hasPremiumCabinFlight()
+    badges.append(RewardBadge(title: "Premium Cabin Flyer", icon: premium ? "crown.fill" : "crown", achieved: premium, detail: premium ? "Flown Business/First" : "Take one Business/First flight"))
+
+    // Hub-lover badge (top airport by visits >= 10)
+    if let top = store.visitsByAirport().first, top.1 >= 10 {
+        badges.append(RewardBadge(title: "Hub Regular", icon: "building.2.fill", achieved: true, detail: "\(top.0) ×\(top.1) visits"))
+    } else if let top = store.visitsByAirport().first {
+        badges.append(RewardBadge(title: "Hub Regular", icon: "building.2", achieved: false, detail: "Next: 10 visits to a single airport • Best: \(top.0) ×\(top.1)"))
+    }
 
     return badges
 }
@@ -1449,6 +1643,263 @@ func cabinBadge(_ cabin: CabinClass?) -> some View {
 }
 
 // ======================================================
+// MARK: - Badge Celebration (Fireworks + Reveal)
+// ======================================================
+
+struct BadgeCelebrationView: View {
+    let badge: RewardBadge
+    let hasMore: Bool
+    let showFireworks: Bool
+    let onDismiss: () -> Void
+
+    @State private var stage: Stage
+    @State private var badgeScale: CGFloat = 0.3
+    @State private var badgeRotation: Double = 0
+    @State private var sparkleOpacity: Double = 0
+
+    enum Stage { case fireworks, badge }
+
+    init(badge: RewardBadge, hasMore: Bool, showFireworks: Bool, onDismiss: @escaping () -> Void) {
+        self.badge = badge
+        self.hasMore = hasMore
+        self.showFireworks = showFireworks
+        self.onDismiss = onDismiss
+        _stage = State(initialValue: showFireworks ? .fireworks : .badge)
+    }
+
+    var body: some View {
+        ZStack {
+            if showFireworks {
+                FireworksBurstView()
+                    .transition(AnyTransition.opacity)
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.8) {
+                            withAnimation(.easeOut(duration: 0.4)) { stage = .badge }
+                        }
+                    }
+            }
+
+            if stage == .badge || !showFireworks {
+                badgeCard
+                    .transition(.scale.combined(with: .opacity))
+            }
+        }
+        .ignoresSafeArea()
+        .onAppear {
+            if !showFireworks {
+                stage = .badge
+            }
+        }
+    }
+
+    private var badgeCard: some View {
+        VStack(spacing: 20) {
+            ZStack {
+                Circle()
+                    .stroke(
+                        AngularGradient(
+                            gradient: Gradient(colors: [.yellow, .orange, .pink, .purple, .blue, .yellow]),
+                            center: .center
+                        ),
+                        lineWidth: 3
+                    )
+                    .frame(width: 110, height: 110)
+                    .rotationEffect(.degrees(badgeRotation))
+                    .opacity(sparkleOpacity)
+
+                Image(systemName: badge.icon)
+                    .font(.system(size: 52, weight: .bold))
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.yellow, .orange, .red],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .scaleEffect(badgeScale)
+            }
+            .onAppear {
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.65)) { badgeScale = 1.0 }
+                withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: false)) { badgeRotation = 360 }
+                withAnimation(.easeInOut(duration: 1.2).repeatForever(autoreverses: true)) { sparkleOpacity = 1.0 }
+            }
+
+            VStack(spacing: 12) {
+                Text("🎉 Congratulations! 🎉")
+                    .font(.headline)
+                    .foregroundStyle(.orange)
+                    .opacity(0.9)
+
+                Text(badge.title)
+                    .font(.title2.weight(.bold))
+                    .multilineTextAlignment(.center)
+
+                if !badge.detail.isEmpty {
+                    Text(badge.detail)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 12)
+                }
+            }
+            .frame(maxWidth: 320)
+            .padding(.vertical, 18)
+            .padding(.horizontal, 20)
+            .background(
+                RoundedRectangle(cornerRadius: 22, style: .continuous)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .stroke(.white.opacity(0.35), lineWidth: 1)
+                    )
+            )
+            .shadow(color: .black.opacity(0.25), radius: 20, x: 0, y: 12)
+
+            HStack(spacing: 16) {
+                Button(action: onDismiss) {
+                    if hasMore {
+                        Label("Next", systemImage: "arrow.right")
+                            .labelStyle(.titleAndIcon)
+                            .font(.system(size: 17, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(
+                                LinearGradient(colors: [.blue, .indigo], startPoint: .leading, endPoint: .trailing),
+                                in: Capsule()
+                            )
+                            .foregroundStyle(.white)
+                    } else {
+                        Label("Done", systemImage: "checkmark.circle.fill")
+                            .labelStyle(.titleAndIcon)
+                            .font(.system(size: 17, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 14)
+                            .background(
+                                LinearGradient(colors: [.green, .mint], startPoint: .leading, endPoint: .trailing),
+                                in: Capsule()
+                            )
+                            .foregroundStyle(.white)
+                    }
+                }
+            }
+            .frame(maxWidth: 300)
+        }
+        .padding(.horizontal, 20)
+    }
+}
+
+private struct FireworksBurstView: View {
+    var body: some View {
+        FireworksView()
+    }
+}
+
+struct FireworksView: View {
+    @State private var start = Date()
+
+    var body: some View {
+        TimelineView(.animation) { timeline in
+            Canvas { ctx, size in
+                let t = timeline.date.timeIntervalSince(start)
+                drawConfetti(ctx: ctx, size: size, time: t)
+            }
+        }
+        .onAppear { start = Date() }
+        .background(confettiBackground)
+    }
+
+    private var confettiBackground: some View {
+        LinearGradient(
+            colors: [
+                Color.white.opacity(0.0),
+                Color.blue.opacity(0.05),
+                Color.purple.opacity(0.08),
+                Color.white.opacity(0.0)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .ignoresSafeArea()
+    }
+
+    private func drawConfetti(ctx: GraphicsContext, size: CGSize, time: Double) {
+        let colors: [Color] = [
+            Color(red: 0.95, green: 0.55, blue: 0.20),
+            Color(red: 0.90, green: 0.32, blue: 0.75),
+            Color(red: 0.42, green: 0.67, blue: 0.98),
+            Color(red: 0.36, green: 0.83, blue: 0.70),
+            Color(red: 0.58, green: 0.50, blue: 0.98)
+        ]
+
+        let confettiCount = 220
+
+        for i in 0..<confettiCount {
+            let delay = Double(i) * 0.03
+            let lifetime = 3.6 + Double(i % 5) * 0.3
+            let elapsed = time - delay
+            if elapsed < 0 { continue }
+            if elapsed > lifetime { continue }
+
+            let progress = elapsed / lifetime
+            let eased = ease(progress)
+
+            let column = Double(i % 18)
+            let laneWidth = Double(size.width) / 18.0
+            let baseX = laneWidth * column + laneWidth * 0.5
+            let drift = sin(elapsed * 1.4 + column) * laneWidth * 0.35
+            let x = baseX + drift
+
+            let startY = -Double(size.height) * 0.1
+            let endY = Double(size.height) * 1.1
+            let y = startY + (endY - startY) * eased
+
+            let spin = elapsed * 3.0 + Double(i % 6) * .pi / 6
+
+            let color = colors[i % colors.count].opacity(0.92)
+
+            var pieceCtx = ctx
+            pieceCtx.translateBy(x: x, y: y)
+            pieceCtx.rotate(by: Angle(radians: spin))
+
+            let baseSize: CGFloat = 9 + CGFloat(i % 4) * 1.3
+            let pathType = i % 5
+
+            switch pathType {
+            case 0:
+                let rect = CGRect(x: -baseSize/2, y: -baseSize*1.8/2, width: baseSize, height: baseSize*1.8)
+                pieceCtx.fill(Path(roundedRect: rect, cornerRadius: baseSize * 0.35), with: .color(color))
+            case 1:
+                let rect = CGRect(x: -baseSize/2, y: -baseSize/2, width: baseSize, height: baseSize)
+                pieceCtx.fill(Path(ellipseIn: rect), with: .color(color))
+            case 2:
+                var path = Path()
+                path.move(to: CGPoint(x: -baseSize * 0.6, y: baseSize * 0.6))
+                path.addLine(to: CGPoint(x: 0, y: -baseSize * 0.8))
+                path.addLine(to: CGPoint(x: baseSize * 0.6, y: baseSize * 0.6))
+                path.closeSubpath()
+                pieceCtx.fill(path, with: .color(color))
+            case 3:
+                let rect = CGRect(x: -baseSize * 0.5, y: -baseSize * 2.1 / 2, width: baseSize, height: baseSize * 2.1)
+                pieceCtx.fill(Path(roundedRect: rect, cornerRadius: baseSize * 0.15), with: .color(color))
+                let accentRect = rect.insetBy(dx: baseSize * 0.2, dy: baseSize * 0.2)
+                pieceCtx.stroke(Path(roundedRect: accentRect, cornerRadius: baseSize * 0.12), with: .color(Color.white.opacity(0.35)), lineWidth: 1)
+            default:
+                let rect = CGRect(x: -baseSize/2, y: -baseSize * 1.4 / 2, width: baseSize, height: baseSize * 1.4)
+                pieceCtx.fill(Path(roundedRect: rect, cornerRadius: baseSize * 0.45), with: .color(color))
+            }
+        }
+    }
+
+    private func ease(_ t: Double) -> Double {
+        // smooth ease-out to slow near the bottom
+        let clamped = max(0, min(1, t))
+        return 1 - pow(1 - clamped, 3)
+    }
+
+    private enum ConfettiShape { case rectangle, capsule, triangle }
+}
+
+// ======================================================
 // MARK: - Utils
 // ======================================================
 
@@ -1460,10 +1911,12 @@ func haversineKM(lat1: Double, lon1: Double, lat2: Double, lon2: Double) -> Doub
     return R * 2 * atan2(sqrt(a), sqrt(1-a))
 }
 
+#if canImport(UIKit)
 extension UIApplication {
     var firstKeyWindow: UIWindow? {
         connectedScenes.compactMap { $0 as? UIWindowScene }.flatMap(\.windows).first { $0.isKeyWindow }
     }
 }
+#endif
 
 

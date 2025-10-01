@@ -15,8 +15,6 @@
 		4A0072CE2E6041F3004BF75D /* AvGeekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0072C12E6041F3004BF75D /* AvGeekApp.swift */; };
 		4A0072D42E604D44004BF75D /* airports_db.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072D22E604D44004BF75D /* airports_db.json */; };
 		4A0072DA2E60559D004BF75D /* aircraft_db.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A0072D92E60559D004BF75D /* aircraft_db.json */; };
-		4A9C50452E6C14F100ABA330 /* ne_50m_land.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C50442E6C14F100ABA330 /* ne_50m_land.geojson */; };
-		4A9C50462E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 4A9C50432E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +46,6 @@
 		4A0072C62E6041F3004BF75D /* README.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4A0072D22E604D44004BF75D /* airports_db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = airports_db.json; sourceTree = "<group>"; };
 		4A0072D92E60559D004BF75D /* aircraft_db.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = aircraft_db.json; sourceTree = "<group>"; };
-		4A9C50432E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ne_50m_admin_0_countries.geojson; sourceTree = "<group>"; };
-		4A9C50442E6C14F100ABA330 /* ne_50m_land.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ne_50m_land.geojson; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -110,8 +106,6 @@
 				4A0072C62E6041F3004BF75D /* README.txt */,
 				4A0072D22E604D44004BF75D /* airports_db.json */,
 				4A0072D92E60559D004BF75D /* aircraft_db.json */,
-				4A9C50432E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson */,
-				4A9C50442E6C14F100ABA330 /* ne_50m_land.geojson */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,8 +240,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A9C50452E6C14F100ABA330 /* ne_50m_land.geojson in Resources */,
-				4A9C50462E6C14F100ABA330 /* ne_50m_admin_0_countries.geojson in Resources */,
 				4A0072C72E6041F3004BF75D /* AppIcon_1024.png in Resources */,
 				4A0072DA2E60559D004BF75D /* aircraft_db.json in Resources */,
 				4A0072C82E6041F3004BF75D /* placeholder.png in Resources */,
